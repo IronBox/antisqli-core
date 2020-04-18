@@ -40,7 +40,7 @@ using (var connection = new SqlConnection("connectionstring"))
     cmd.LoadQueryTextSecure(
         "SELECT CustomerName, City " +
         "FROM Customers " +
-        "WHERE d1 = '{0}' AND d3 = {2} AND d2 = '{1}'", data1, data2, data3);
+        "WHERE d1 = '{0}' AND d3 = {2} AND d2 = '{1}'", evil_data1, evil_data2, evil_data3);
     connection.Open();
     var dataReader = await cmd.ExecuteReaderAsync();
 }
@@ -63,7 +63,7 @@ using (var connection = new SqlConnection("connectionstring"))
     cmd.LoadQuerySecure(
         "SELECT OrderID, CustomerID " +
         "FROM dbo.Orders " +
-        "WHERE state = {0} or state = {1}", state1, state2);
+        "WHERE state = {0} or state = {1}", evil_data1, evil_data2);
     using (var reader = cmd.ExecuteReader())
     {
         while (reader.Read())
@@ -86,26 +86,24 @@ LoadQuerySecure(this SqlQuerySpec sqs, String queryText, params Object[] queryTe
 ````csharp
 using IronBox.AntiSQLi.Core.Cosmos;
 
-using (var connection = new SqlConnection("connectionstring"))
-{
-    SqlCommand cmd = new SqlCommand();
-    cmd.connection = connection;
-    connection.Open();
-    cmd.LoadQuerySecure(
-        "SELECT OrderID, CustomerID " +
-        "FROM dbo.Orders " +
-        "WHERE state = {0} or state = {1}", state1, state2);
-    using (var reader = cmd.ExecuteReader())
-    {
-        while (reader.Read())
-        {
-            Console.WriteLine(String.Format("{0}, {1}",
-                reader[0], reader[1]));
-        }
-    }
-}
+var querySpec = new SqlQuerySpec();
+querySpec.LoadQuerySecure("select * from doc where doc.name = {0}", evil_data1);
+var documentClient = new Microsoft.Azure.Documents.Client.DocumentClient(new Uri("document_db_uri"), "document_key");
+...
+var queryResult = documentClient.CreateDocumentQuery("collection_link", querySpec);
 ````
-#### `Microsoft.Azure.Cosmos.QueryDefinition`
+### `Microsoft.Azure.Cosmos.QueryDefinition`
+
+#### Example
+````csharp
+using IronBox.AntiSQLi.Core.Cosmos;
+
+var querySpec = new SqlQuerySpec();
+querySpec.LoadQuerySecure("select * from doc where doc.name = {0}", evil_data1);
+var documentClient = new Microsoft.Azure.Documents.Client.DocumentClient(new Uri("document_db_uri"), "document_key");
+...
+var queryResult = documentClient.CreateDocumentQuery("collection_link", querySpec);
+````
 
 ## How this library works
 Whenever a dynamic SQL query is constructed using data from an untrusted source and then processed by a SQL interpreter, the potential for an attacker to execute unauthorized commands through the interpreter is created. This is because the untrusted data itself could contain executable SQL statements. Application code that contains this pattern is said to be vulnerable to [SQL injection (SQLi)](https://owasp.org/www-community/attacks/SQL_Injection) attacks.
