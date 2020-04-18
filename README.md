@@ -68,7 +68,7 @@ var dataReader = await cmd.ExecuteReaderAsync();
 ```
 Using parameters is an effective way to mitigate risk from SQLi attacks; however, it can become tedious and error-prone especially in scenarios with large numbers of query variables. Certainly, the convenience of using a single line of code to create queries is lost.
 
-The **AntiSQLi library provides class extensions that automatically parameterizes and loads dynamic queries**. Using the original code example above, here is how the AntiSQLi library could be used.
+The **AntiSQLi library provides class extensions that automatically parameterizes and loads dynamic queries** for developers. Using the original code example above, here is how the AntiSQLi library could be used.
 
 ```csharp
 using IronBox.AntiSQLi.Core.Sql
