@@ -107,7 +107,7 @@ var queryResult = documentClient.CreateDocumentQuery("collection_link", querySpe
 ### `Microsoft.Azure.Cosmos.QueryDefinition`
 Another way to perform a SQL query against a Azure Cosmos DB service is with the use of the [Microsoft.Azure.Cosmos.QueryDefinition](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.querydefinition) class. 
 
-This class only supports loading queries at the time of instantiation so using extensions was not possible. Instead, the AntiSQLi provides a helper class that reads a query and arguments, generates parameters and creates an instance of the QueryDefinition class with the parameterized query.
+This class only supports loading queries at the time of instantiation so using extensions was not possible. Instead, the AntiSQLi provides a helper class to automatically parameterize and load queries into a new QueryDefinition instance.
 #### Example
 ````csharp
 using IronBox.AntiSQLi.Core.Cosmos;
