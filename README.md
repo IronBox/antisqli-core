@@ -81,7 +81,7 @@ cmd.LoadQuerySecure("SELECT * FROM UserTable WHERE uname = '{0}'", username);
 var dataReader = await cmd.ExecuteReaderAsync();
 ...
 ```
-At runtime, the class extension `.LoadQuerySecure(String queryText, params Object[] args)` performs two important tasks. The first is it analyzes the `args` object parameters provided and automatically generates SQL parameter objects (assigns IDs, set types and values) for each.
+At runtime, the class extension `.LoadQuerySecure(String queryText, params Object[] args)` performs two important tasks for the developer. The first is it analyzes the `args` object parameters provided and generates SQL parameter objects (assigns IDs, set types and values) for each.
 ```csharp
 // These operations are automatically performed by the AntiSQLi library at runtime
 SqlParameter parameter = new SqlParameter();
@@ -93,8 +93,7 @@ cmd.Parameters.Add(parameter);
 // Repeat for any additional arg objects, with new IDs (@AntiSQLiParam2, @AntiSQLiParam3 ...)
 ...
 ```
-The second task performed by the AntiSQLi library is it replaces the original format items IDs in the query to match the IDs of the dynamically generated parameters. The original query:
-
+The second task performed by the library is it replaces the original format-items in the query to match the IDs of the generated parameters. The original query:
 ````csharp
 cmd.CommandText = "SELECT * FROM UserTable WHERE uname = '{0}'";
 ````
@@ -102,6 +101,7 @@ would be replaced at runtime with:
 ````csharp
 cmd.CommandText = "SELECT * FROM UserTable WHERE uname = '@AntiSQLiParam1'";
 ````
+With the AntiSQLi library, developers can continue using the SQL coding patterns that they are already familiar with and let the library take care applying best practices to mitigate risks in an easy-to-use and repeatable way.
 
 ## About
 In 2012, Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) were thinking of ways to help .NET developers more easily defend their applications against SQL injection (SQLi) attacks, the #1 web application attack then. The [initial version of the AntiSQLi Library](https://github.com/IronBox/AntiSQLi) was developed and released in 2013.
