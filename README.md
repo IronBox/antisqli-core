@@ -43,13 +43,30 @@ Whenever a dynamic SQL query is constructed using data from an untrusted source 
 A common pattern for creating a dynamic SQL query is to express the query as a string with placeholders for variables. The class method `String.Format` is a convenient way to implement this pattern.
 
 ```csharp
-// Vulnerable SQLi application code example
+// Vulnerable SQLi application code example, username could come from an untrusted source
 SqlCommand cmd = new SqlCommand();
 cmd.Connection = new SqlConnection("connection_string");
 cmd.CommandText = String.Format("SELECT * FROM UserTable WHERE uname = '{0}'", username);
 var dataReader = await cmd.ExecuteReaderAsync();
 ...
 ```
+An approach to remediate the above vulnerable code is to use [SQL parameters](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters).
+
+```csharp
+SqlCommand cmd = new SqlCommand();
+cmd.Connection = new SqlConnection("connection_string");
+cmd.CommandText = "SELECT * FROM UserTable WHERE uname = '@username'");
+
+SqlParameter parameter = new SqlParameter("@username", SqlDbType.VarChar);
+parameter.Direction = ParameterDirection.Input;
+parameter.Size = username.Length;
+parameter.Value = username;
+cmd.Parameters.Add(parameter);
+
+var dataReader = await cmd.ExecuteReaderAsync();
+...
+```
+
 
 ## About
 In 2012, Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) were thinking of ways to help .NET developers more easily defend their applications against SQL injection (SQLi) attacks, the #1 web application attack then. The [initial version of the AntiSQLi Library](https://github.com/IronBox/AntiSQLi) was developed and released in 2013.
