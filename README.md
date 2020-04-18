@@ -20,7 +20,7 @@ Install-Package IronBox.AntiSQLi.Core
 - .NET Standard 2.1+
 
 ## How this library works
-
+When a dynamic SQL query is constructed using data from an untrusted source and then executed by a SQL interpreter, the potential for an attacker to execute unauthorized commands is created.
 
 ## Usage
 
