@@ -24,7 +24,7 @@ Install-Package IronBox.AntiSQLi.Core
 ## Usage
 How you use the AntiSQLi Library depends on the provider class that you are using to perform your SQL queries. Here is a table to help guide you to the appropriate extensions and helper classes to use:
 
-Provider Class | Use AntiSQLi Class.Method | Namespace to Import
+SQL Provider Class | Use AntiSQLi Class.Method | Namespace to Import
 --- | --- | ---
 System.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Sql
 Microsoft.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Sql
