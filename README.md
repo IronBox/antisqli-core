@@ -55,7 +55,7 @@ An approach to remediate the above vulnerable code is to use [SQL parameters](ht
 ```csharp
 SqlCommand cmd = new SqlCommand();
 cmd.Connection = new SqlConnection("connection_string");
-cmd.CommandText = "SELECT * FROM UserTable WHERE uname = '@username'");
+cmd.CommandText = "SELECT * FROM UserTable WHERE uname = '@username'";
 
 SqlParameter parameter = new SqlParameter("@username", SqlDbType.VarChar);
 parameter.Direction = ParameterDirection.Input;
