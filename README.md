@@ -22,6 +22,19 @@ Install-Package IronBox.AntiSQLi.Core
 
 ## Usage
 
+### General
+
+### System.Data.SqlClient
+
+
+### Microsoft.Data.SqlClient
+
+
+
+### Microsoft.Azure.Documents.SqlQuerySpec
+
+
+### Microsoft.Azure.Cosmos.QueryDefinition
 
 ## About
 Back in 2013, 
