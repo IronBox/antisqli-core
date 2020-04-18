@@ -76,9 +76,9 @@ using (var connection = new SqlConnection("connectionstring"))
 ````
 
 ### `Microsoft.Azure.Documents.SqlQuerySpec`
-Azure Cosmos DB is Microsoft's cloud-based nonrelational database service that supports querying items using SQL. While Microsoft has implemented controls in the Cosmos DB service to prevent privilege escalation, it may still be possible for an attacker to gain unauthorized data using SQLi attacks.
+Azure Cosmos DB is Microsoft's cloud-based nonrelational database service that supports querying items using SQL. While Microsoft has implemented controls in the Azure Cosmos DB service to prevent privilege escalation, it may still be possible for an attacker to gain unauthorized access to data using SQLi attacks.
 
-One method to perform a SQL query in the Azure Cosmos DB service is with the use of the [Microsoft.Azure.Documents.SqlQuerySpec](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.sqlqueryspec) class. The AntiSQLi library extends this class with a method called `LoadQuerySecure`.
+One way to perform a SQL query in the Azure Cosmos DB service is with the use of the [Microsoft.Azure.Documents.SqlQuerySpec](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.sqlqueryspec) class. The AntiSQLi library extends this class with a method called `LoadQuerySecure`.
 ````csharp
 LoadQuerySecure(this SqlQuerySpec sqs, String queryText, params Object[] queryTextArgs)
 ````
