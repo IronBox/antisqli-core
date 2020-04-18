@@ -91,7 +91,6 @@ parameter.DbType = SqlDbType.VarChar;
 cmd.Parameters.Add(parameter);
 
 // Repeat for any additional arg objects, with new IDs (@AntiSQLiParam2, @AntiSQLiParam3 ...)
-...
 ```
 The second task performed by the library is it replaces the original format-items in the query to match the IDs of the generated parameters. The original query:
 ````csharp
