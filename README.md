@@ -24,7 +24,6 @@ Install-Package IronBox.AntiSQLi.Core
 
 ## Usage
 
-### General
 
 ### System.Data.SqlClient
 
@@ -39,4 +38,4 @@ Install-Package IronBox.AntiSQLi.Core
 ### Microsoft.Azure.Cosmos.QueryDefinition
 
 ## About
-Back in 2013, 
+Back in 2012, Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) 
