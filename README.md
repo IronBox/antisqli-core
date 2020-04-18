@@ -47,7 +47,7 @@ A common pattern for creating a dynamic SQL query is to express the query as a s
 // Vulnerable SQLi application code example, username is untrusted data
 SqlCommand cmd = new SqlCommand();
 cmd.Connection = new SqlConnection("connection_string");
-cmd.CommandText = String.Format("SELECT * FROM UserTable WHERE uname = '{0}'", username);
+cmd.CommandText = String.Format("SELECT * FROM UserTable WHERE uname = '{0}'", username); // Vulnerable to SQLi
 var dataReader = await cmd.ExecuteReaderAsync();
 ...
 ```
