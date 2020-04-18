@@ -43,14 +43,14 @@ When a dynamic SQL query is constructed using data from an untrusted source and 
 [Route("profile/{username}")]
 public async Task<IActionResult> Index(String username)
 {
-
-...
-SqlCommand cmd = new SqlCommand();
-cmd.Connection = new SqlConnection("connection_string");
-cmd.CommandText = String.Format("SELECT * FROM UserTable WHERE un = '{0}'", username);
-var dataReader = await cmd.ExecuteReaderAsync();
-...
-
+  ...
+  SqlCommand cmd = new SqlCommand();
+  cmd.Connection = new SqlConnection("connection_string");
+  cmd.CommandText = String.Format("SELECT * FROM UserTable WHERE un = '{0}'", username);
+  var dataReader = await cmd.ExecuteReaderAsync();
+  
+  ...
+  return View();
 }
 ```
 
