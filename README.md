@@ -43,14 +43,14 @@ Whenever a dynamic SQL query is constructed using data from an untrusted source 
 A common pattern for creating a dynamic SQL query is to express the query as a string with placeholders for variables. The class method `String.Format` is a convenient way to implement this pattern.
 
 ```csharp
-// Vulnerable SQLi application code example, username could come from an untrusted source
+// Vulnerable SQLi application code example, username is untrusted data
 SqlCommand cmd = new SqlCommand();
 cmd.Connection = new SqlConnection("connection_string");
 cmd.CommandText = String.Format("SELECT * FROM UserTable WHERE uname = '{0}'", username);
 var dataReader = await cmd.ExecuteReaderAsync();
 ...
 ```
-An approach to remediate the above vulnerable code is to use [SQL parameters](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters).
+An approach to remediate the above vulnerable code is to use [SQL parameters](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters). When using parameters, a placeholder is left in the literal query that references a parameter that the untrusted data is assigned to. The SQL interpreter interprets the parameter data as non-executable code and any risk from SQLi attacks is mitigated.
 
 ```csharp
 SqlCommand cmd = new SqlCommand();
