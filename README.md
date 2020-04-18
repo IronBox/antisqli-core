@@ -74,7 +74,7 @@ using (var connection = new SqlConnection("connectionstring"))
     cmd.LoadQuerySecure(
         "SELECT OrderID, CustomerID " +
         "FROM dbo.Orders " +
-        "WHERE state = {0} or state = {1}", evil_data1, evil_data2);
+        "WHERE state = {0} OR state = {1}", evil_data1, evil_data2);
     using (var reader = cmd.ExecuteReader())
     {
         while (reader.Read())
