@@ -28,8 +28,8 @@ SQL Provider Class | Use AntiSQLi Class.Method | Namespace to Import
 --- | --- | ---
 System.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Sql
 Microsoft.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Sql
-Microsoft.Azure.Documents.SqlQuerySpec | CosmosDBExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Cosmos
-Microsoft.Azure.Documents.QueryDefinition | SecureQueryDefinition.Create | IronBox.AntiSQLi.Core.Cosmos
+Microsoft.Azure.Documents.Client.SqlQuerySpec | CosmosDBExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Cosmos
+Microsoft.Azure.Cosmos.QueryDefinition | SecureQueryDefinition.Create | IronBox.AntiSQLi.Core.Cosmos
 
 More information and examples on using each is provided below:
 
