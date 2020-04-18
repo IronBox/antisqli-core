@@ -25,7 +25,7 @@ Install-Package IronBox.AntiSQLi.Core
 
 
 #### `System.Data.SqlClient.SqlCommand`
-The [System.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand) class the traditional mechanism for developers to execute Transact-SQL statements or stored procedures against a SQL database. The AntiSQLi library extends this class with a method called `LoadQuerySecure`
+The [System.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand) class the traditional mechanism for developers to execute Transact-SQL statements or stored procedures against a SQL database or Azure SQL Database. The AntiSQLi library extends this class with a method called `LoadQuerySecure`
 ````csharp
 LoadQueryTextSecure(this SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
 ````
