@@ -122,7 +122,7 @@ while (feedIterator.HasMoreResults)
 }
 ````
 
-## How this library works
+## How the AntiSQLi Library Works
 Whenever a dynamic SQL query is constructed using data from an untrusted source and then processed by a SQL interpreter, the potential for an attacker to execute unauthorized commands through the interpreter is created. This is because the untrusted data itself could contain executable SQL statements. Application code that contains this pattern is said to be vulnerable to [SQL injection (SQLi)](https://owasp.org/www-community/attacks/SQL_Injection) attacks.
 
 ### Automatic Query Parameterization
