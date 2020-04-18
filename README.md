@@ -102,7 +102,7 @@ cmd.CommandText = "SELECT * FROM UserTable WHERE uname = '@AntiSQLiParam1'";
 ````
 The parameterized query is passed to the SQL interpreter for processing with the call to `await cmd.ExecuteReaderAsync();` and any risk from SQLi attacks is properly mitigated.
 
-With the AntiSQLi library, developers can continue using the SQL coding patterns that they are already familiar with and let the library take care applying security best practices in an easy-to-use and repeatable way.
+With the AntiSQLi library, developers can continue using the SQL coding patterns that they are already familiar with and let the library take care of applying security best practices in an easy-to-use and repeatable way.
 
 ## About
 In 2012, Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) were thinking of ways to help .NET developers more easily defend their applications against SQL injection (SQLi) attacks, the #1 web application attack then. The [initial version of the AntiSQLi Library](https://github.com/IronBox/AntiSQLi) was developed and released in 2013.
