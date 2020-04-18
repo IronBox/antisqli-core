@@ -66,7 +66,7 @@ cmd.Parameters.Add(parameter);
 var dataReader = await cmd.ExecuteReaderAsync();
 ...
 ```
-Using parameters is an effective way to mitigate risk from SQLi attacks; however, it can become tedious and error-prone especially in scenarios with large numbers of query variables and the convenience of using a single line of code to create queries is lost.
+Using parameters is an effective way to mitigate risk from SQLi attacks; however, it can become tedious and error-prone especially in scenarios with large numbers of query variables. Additionally, the convenience of using a single line of code to create queries is lost.
 
 
 ## About
