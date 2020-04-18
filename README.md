@@ -25,10 +25,10 @@ Install-Package IronBox.AntiSQLi.Core
 ## Usage
 
 
-### System.Data.SqlCommand
+### System.Data.SqlClient.SqlCommand
 
 
-### Microsoft.Data.SqlCommand
+### Microsoft.Data.SqlClient.SqlCommand
 
 
 
