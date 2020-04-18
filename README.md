@@ -38,6 +38,6 @@ Install-Package IronBox.AntiSQLi.Core
 ### Microsoft.Azure.Cosmos.QueryDefinition
 
 ## About
-In 2012, Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) were thinking of ways they could help .NET developers more easily defend their applications against SQL injection attacks, the #1 web application attack then. The [initial version of the AntiSQLi Library](https://github.com/IronBox/AntiSQLi) was developed and released later in 2013.
+In 2012, Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) were thinking of ways they could help .NET developers more easily defend their applications against SQL injection attacks, the #1 web application attack then. The [initial version of the AntiSQLi Library](https://github.com/IronBox/AntiSQLi) was developed and released in 2013.
 
-In 2020, injection attacks like SQLi attack continue to be the #1 web application and 
+In 2020, SQLi attacks continued to be the #1 web application attack and the number of vectors for this attack has also expanded, especially with higher adoption of database cloud platforms. In response, a new and more easy-to-use version of the original AntiSQLi library was written to improve usability and protection coverage.
