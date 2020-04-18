@@ -40,7 +40,7 @@ Install-Package IronBox.AntiSQLi.Core
 Whenever a dynamic SQL query is constructed using data from an untrusted source and then processed by a SQL interpreter, the potential for an attacker to execute unauthorized commands through the interpreter is created. Application code that contains this pattern is known to be vulnerable to [SQL injection (SQLi)](https://owasp.org/www-community/attacks/SQL_Injection) attacks.
 
 ### Automatic Query Parameterization
-A common pattern for creating a dynamic SQL query is to express the query as a string with placeholders for variables. The class method `String.Format` is a convenient way to implement this pattern.
+A common pattern for creating a dynamic SQL query is to express the query as a string with placeholders for variables. For example, the class method `String.Format` is a convenient way to implement this pattern.
 
 ```csharp
 // Vulnerable SQLi application code example, username is untrusted data
