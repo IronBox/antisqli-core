@@ -79,8 +79,9 @@ cmd.LoadQuerySecure("SELECT * FROM UserTable WHERE uname = '{0}'", username);
 var dataReader = await cmd.ExecuteReaderAsync();
 ...
 ```
-At runtime, the class extension `.LoadQuerySecure(queryText, params Object[] args)` performs two important tasks. The first is it analyzes the `args` parameters provide and performs the equivalent to:
+At runtime, the class extension `.LoadQuerySecure(queryText, params Object[] args)` performs two important tasks. The first is it analyzes the `args` object parameters provided and automatically generates SQL parameter objects (assigns IDs, set types and values) for each.
 ```csharp
+// These operations are automatically performed by the AntiSQLi library at runtime
 SqlParameter parameter = new SqlParameter("@AntiSQLi1", SqlDbType.VarChar);
 parameter.Value = username;
 cmd.Parameters.Add(parameter);
