@@ -88,12 +88,12 @@ cmd.Parameters.Add(parameter);
 // Any additional parameters would also be generated: @AntiSQLi2, @AntiSQLi3 ...
 ...
 ```
-The second task performed by the AntiSQLi library is it replaces the original format items in the query to match the IDs of the dynamic parameters it generated and assigned to the SqlCommand object `cmd`. The original query:
+The second task performed by the AntiSQLi library is it replaces the original format items IDs in the query to match the IDs of the dynamically generated parameters. The original query:
 
 ````sql
 SELECT * FROM UserTable WHERE uname = '{0}'
 ````
-Would be replaced at runtime with:
+would be replaced at runtime with:
 ````sql
 SELECT * FROM UserTable WHERE uname = '@AntiSQLiParam1'
 ````
