@@ -57,10 +57,10 @@ SqlCommand cmd = new SqlCommand();
 cmd.Connection = new SqlConnection("connection_string");
 cmd.CommandText = "SELECT * FROM UserTable WHERE uname = '@username'";
 
-SqlParameter parameter = new SqlParameter("@username", SqlDbType.VarChar);
-parameter.Direction = ParameterDirection.Input;
-parameter.Size = username.Length;
+SqlParameter parameter = new SqlParameter();
+parameter.ParameterName = "@username";
 parameter.Value = username;
+parameter.DbType = SqlDbType.VarChar;
 cmd.Parameters.Add(parameter);
 
 var dataReader = await cmd.ExecuteReaderAsync();
@@ -82,8 +82,10 @@ var dataReader = await cmd.ExecuteReaderAsync();
 At runtime, the class extension `.LoadQuerySecure(queryText, params Object[] args)` performs two important tasks. The first is it analyzes the `args` object parameters provided and automatically generates SQL parameter objects (assigns IDs, set types and values) for each.
 ```csharp
 // These operations are automatically performed by the AntiSQLi library at runtime
-SqlParameter parameter = new SqlParameter("@AntiSQLiParam1", SqlDbType.VarChar);
+SqlParameter parameter = new SqlParameter();
+parameter.ParameterName = "@AntiSQLiParam1";
 parameter.Value = username;
+parameter.DbType = SqlDbType.VarChar;
 cmd.Parameters.Add(parameter);
 
 // Any additional parameters would also be generated: @AntiSQLiParam2, @AntiSQLiParam3 ...
