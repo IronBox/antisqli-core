@@ -68,6 +68,18 @@ var dataReader = await cmd.ExecuteReaderAsync();
 ```
 Using parameters is an effective way to mitigate risk from SQLi attacks; however, it can become tedious and error-prone especially in scenarios with large numbers of query variables. Additionally, the convenience of using a single line of code to create queries is lost.
 
+The AntiSQLi library provides class extensions that automatically parameterizes and loads dynamic queries. Using the original code example above, here is how the AntiSQLi library could be used.
+
+```csharp
+using IronBox.AntiSQLi.Core.Sql
+
+SqlCommand cmd = new SqlCommand();
+cmd.Connection = new SqlConnection("connection_string");
+cmd.LoadQuerySecure("SELECT * FROM UserTable WHERE uname = '{0}'", username);
+var dataReader = await cmd.ExecuteReaderAsync();
+...
+```
+
 
 ## About
 In 2012, Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) were thinking of ways to help .NET developers more easily defend their applications against SQL injection (SQLi) attacks, the #1 web application attack then. The [initial version of the AntiSQLi Library](https://github.com/IronBox/AntiSQLi) was developed and released in 2013.
