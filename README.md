@@ -19,8 +19,7 @@ Install-Package IronBox.AntiSQLi.Core
 
 - .NET Standard 2.1+
 
-## How this library works
-When a dynamic SQL query is constructed using data from an untrusted source and then executed by a SQL interpreter, the potential for an attacker to execute unauthorized commands is created.
+
 
 ## Usage
 
@@ -36,6 +35,9 @@ When a dynamic SQL query is constructed using data from an untrusted source and 
 
 
 ### Microsoft.Azure.Cosmos.QueryDefinition
+
+## How this library works
+When a dynamic SQL query is constructed using data from an untrusted source and then executed by a SQL interpreter, the potential for an attacker to execute unauthorized commands is created.
 
 ## About
 In 2012, Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) were thinking of ways they could help .NET developers more easily defend their applications against SQL injection attacks, the #1 web application attack then. The [initial version of the AntiSQLi Library](https://github.com/IronBox/AntiSQLi) was developed and released in 2013.
