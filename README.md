@@ -39,7 +39,7 @@ Install-Package IronBox.AntiSQLi.Core
 ## How this library works
 When a dynamic SQL query is constructed using data from an untrusted source and then processed by a SQL interpreter, the potential for an attacker to execute unauthorized commands through the interpreter is created. Application code that contains this pattern is known to be vulnerable to [SQL injection (SQLi)](https://owasp.org/www-community/attacks/SQL_Injection) attacks.
 
-```C#
+```csharp
 [Route("profile/{username}")]
 public async Task<IActionResult> Index(String username)
 {
