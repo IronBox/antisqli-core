@@ -37,7 +37,7 @@ Install-Package IronBox.AntiSQLi.Core
 #### Microsoft.Azure.Cosmos.QueryDefinition
 
 ## How this library works
-When a dynamic SQL query is constructed using data from an untrusted source and then processed by a SQL interpreter, the potential for an attacker to execute unauthorized commands through the interpreter is created. A vulnerability in code that follows this pattern is referred to as a [SQL injection (SQLi)](https://owasp.org/www-community/attacks/SQL_Injection) vulnerability.
+When a dynamic SQL query is constructed using data from an untrusted source and then processed by a SQL interpreter, the potential for an attacker to execute unauthorized commands through the interpreter is created. Application code that follows this pattern is referred to as a [SQL injection (SQLi)](https://owasp.org/www-community/attacks/SQL_Injection) vulnerability.
 
 ## About
 In 2012, Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) were thinking of ways to help .NET developers more easily defend their applications against SQL injection attacks, the #1 web application attack then. The [initial version of the AntiSQLi Library](https://github.com/IronBox/AntiSQLi) was developed and released in 2013.
