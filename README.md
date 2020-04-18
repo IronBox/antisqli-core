@@ -41,7 +41,7 @@ When a dynamic SQL query is constructed using data from an untrusted source and 
 
 ```csharp
 [Route("profile/{username}")]
-public async Task<IActionResult> Index(String username)
+public async Task<IActionResult> Profile(String username)
 {
   ...
   SqlCommand cmd = new SqlCommand();
