@@ -90,7 +90,7 @@ parameter.Value = username;
 parameter.DbType = SqlDbType.VarChar;
 cmd.Parameters.Add(parameter);
 
-// Any additional parameters would also be generated: @AntiSQLiParam2, @AntiSQLiParam3 ...
+// Repeat for any additional arg objects, with new IDs (@AntiSQLiParam2, @AntiSQLiParam3 ...)
 ...
 ```
 The second task performed by the AntiSQLi library is it replaces the original format items IDs in the query to match the IDs of the dynamically generated parameters. The original query:
