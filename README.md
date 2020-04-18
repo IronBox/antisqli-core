@@ -5,7 +5,7 @@ The library provides support for:
 
 - SQL Server
 - Azure SQL Database
-- Azure Cosmos DB/ DocumentDB
+- Azure Cosmos DB/DocumentDB
 
 ## Installation
 
