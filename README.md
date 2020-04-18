@@ -104,4 +104,4 @@ cmd.CommandText = "SELECT * FROM UserTable WHERE uname = '@AntiSQLiParam1'";
 ## About
 In 2012, Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) were thinking of ways to help .NET developers more easily defend their applications against SQL injection (SQLi) attacks, the #1 web application attack then. The [initial version of the AntiSQLi Library](https://github.com/IronBox/AntiSQLi) was developed and released in 2013.
 
-In 2020, SQLi continued to be the #1 web application attack; however, the surface area for this attack had greatly expanded. In response, the AntiSQLi library was completely re-written with the goals of improving ease-of-use, integration and protection coverage.
+In 2020, SQLi continued to be the #1 web application attack; however, the surface area for this attack had greatly expanded. In response, the AntiSQLi library was completely re-written with the goals of improving ease-of-use for developers, integration and protection coverage.
