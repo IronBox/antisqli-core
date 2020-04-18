@@ -25,7 +25,7 @@ Install-Package IronBox.AntiSQLi.Core
 
 
 ### `System.Data.SqlClient.SqlCommand`
-The [System.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand) class is the traditional mechanism for developers to execute Transact-SQL statements or stored procedures against a SQL database, such as SQL Server or Azure SQL Database. The AntiSQLi library extends this class with a method called `LoadQuerySecure`.
+The [System.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand) class is the traditional mechanism for developers to execute Transact-SQL statements or stored procedures against a SQL database, such as SQL Server or Azure SQL Database. The AntiSQLi library extends this class with a method called `LoadQuerySecure` to automatically parameterize and load queries.
 ````csharp
 LoadQueryTextSecure(this SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
 ````
@@ -47,7 +47,7 @@ using (var connection = new SqlConnection("connectionstring"))
 ````
 
 ### `Microsoft.Data.SqlClient.SqlCommand`
-Moving forward, [Microsoft.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand) is Microsoft's recommended Transact-SQL statement and stored procedure executor against a SQL database. The AntiSQLi library extends this class with a method called `LoadQuerySecure`.
+Moving forward, [Microsoft.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand) is Microsoft's recommended Transact-SQL statement and stored procedure executor against a SQL database. The AntiSQLi library extends this class with a method called `LoadQuerySecure` to automatically parameterize and load queries.
 ````csharp
 LoadQueryTextSecure(this SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
 ````
@@ -78,7 +78,7 @@ using (var connection = new SqlConnection("connectionstring"))
 ### `Microsoft.Azure.Documents.SqlQuerySpec`
 Azure Cosmos DB is Microsoft's cloud-based nonrelational database service that supports querying items using SQL. While Microsoft has implemented controls in the Azure Cosmos DB service to prevent privilege escalation, it may still be possible for an attacker to gain unauthorized access to data using SQLi attacks.
 
-One way to perform a SQL query in the Azure Cosmos DB service is with the use of the [Microsoft.Azure.Documents.SqlQuerySpec](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.sqlqueryspec) class. The AntiSQLi library extends this class with a method called `LoadQuerySecure`.
+One way to perform a SQL query in the Azure Cosmos DB service is with the use of the [Microsoft.Azure.Documents.SqlQuerySpec](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.sqlqueryspec) class. The AntiSQLi library extends this class with a method called `LoadQuerySecure` to automatically parameterize and load queries.
 ````csharp
 LoadQuerySecure(this SqlQuerySpec sqs, String queryText, params Object[] queryTextArgs)
 ````
