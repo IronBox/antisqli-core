@@ -47,7 +47,7 @@ using (var connection = new SqlConnection("connectionstring"))
 ````
 
 ### `Microsoft.Data.SqlClient.SqlCommand`
-Moving forward, [Microsoft.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand) is Microsoft's recommended Transact-SQL statement and stored procedure executor against a SQL database. The AntiSQLi library extends this class with a method called `LoadQuerySecure'.
+Moving forward, [Microsoft.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand) is Microsoft's recommended Transact-SQL statement and stored procedure executor against a SQL database. The AntiSQLi library extends this class with a method called `LoadQuerySecure`.
 ````csharp
 LoadQueryTextSecure(this SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
 ````
