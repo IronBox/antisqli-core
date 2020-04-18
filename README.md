@@ -40,7 +40,7 @@ using (var connection = new SqlConnection("connectionstring"))
     cmd.LoadQueryTextSecure(
         "SELECT CustomerName, City " +
         "FROM Customers " +
-        "WHERE d1 = '{0}' AND d2 = {1} AND d3 = '{2}'", data1, data2, data3);
+        "WHERE d1 = '{0}' AND d3 = {2} AND d2 = '{1}'", data1, data2, data3);
     connection.Open();
     var dataReader = await cmd.ExecuteReaderAsync();
 }
