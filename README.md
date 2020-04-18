@@ -1,4 +1,4 @@
-# AntiSQLi Library
+# Anti-SQL Injection (AntiSQLi) Library
 The AntiSQLi libray provides developers with convenient methods and class extensions to reduce the risk from SQL injection (SQLi) attacks in their .NET applications.
 
 The library provides support for:
