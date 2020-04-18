@@ -96,16 +96,21 @@ var documentClient = new DocumentClient(new Uri("document_db_uri"), "document_ke
 var queryResult = documentClient.CreateDocumentQuery("collection_link", querySpec);
 ````
 ### `Microsoft.Azure.Cosmos.QueryDefinition`
+Another way to perform a SQL query against a Azure Cosmos DB service is with the use of the [Microsoft.Azure.Cosmos.QueryDefinition](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.querydefinition). 
 
+This class only supports loading queries at the time of instantiation so using extensions was not possible. Instead, the AntiSQLi provides a helper class that reads a query and arguments, creates a parameterized query and instantiates a QueryDefinition class with the parameterized query.
 #### Example
 ````csharp
 using IronBox.AntiSQLi.Core.Cosmos;
+using Microsoft.Azure.Cosmos;
 
-var querySpec = new SqlQuerySpec();
-querySpec.LoadQuerySecure("select * from doc where doc.name = {0}", evil_data1);
-var documentClient = new Microsoft.Azure.Documents.Client.DocumentClient(new Uri("document_db_uri"), "document_key");
+QueryDefinition parameterizedQueryDefinition = SecureQueryDefinition.Create("SELECT codes FROM productkeys WHERE pname = {0}", evil_data1);
+var container = client.GetContainer("databasename", "collectionname");
+var feedIterator = container.GetItemQueryIterator<String>(query);
+while (feedIterator.HasMoreResults)
+{
 ...
-var queryResult = documentClient.CreateDocumentQuery("collection_link", querySpec);
+}
 ````
 
 ## How this library works
@@ -178,8 +183,6 @@ The parameterized query is passed to the SQL interpreter for processing with the
 With the AntiSQLi library, developers can continue using the SQL coding patterns that they are already familiar with and let the library take care of applying security best practices in an easy-to-use and repeatable way.
 
 ## About
-`2012` Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) were thinking of ways to help .NET developers more easily defend their applications against SQL injection (SQLi) attacks, the #1 web application attack then. 
-
-`2013` The [initial version of the AntiSQLi Library](https://github.com/IronBox/AntiSQLi) was developed and released.
-
-`2020` SQLi continued to be the #1 web application attack; however, the surface area for this attack had greatly expanded. In response, the AntiSQLi library was completely re-written with the goals of improving ease-of-use for developers, integration and protection coverage.
+- `2012` Kevin Lam ([IronBox](https://www.ironbox.io)) and Joe Basirico ([Security Innovation](https://www.securityinnovation.com)) were thinking of ways to help .NET developers more easily defend their applications against SQL injection (SQLi) attacks, the #1 web application attack then. 
+- `2013` The [initial version of the AntiSQLi Library](https://github.com/IronBox/AntiSQLi) was developed and released.
+- `2020` SQLi continued to be the #1 web application attack; however, the surface area for this attack had greatly expanded. In response, the AntiSQLi library was completely re-written with the goals of improving ease-of-use for developers, integration and protection coverage.
