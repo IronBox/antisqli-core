@@ -64,7 +64,7 @@ using (var connection = new SqlConnection("connectionstring"))
         "SELECT OrderID, CustomerID " +
         "FROM dbo.Orders " +
         "WHERE state = {0} or state = {1}", state1, state2);
-    using (SqlDataReader reader = cmd.ExecuteReader())
+    using (var reader = cmd.ExecuteReader())
     {
         while (reader.Read())
         {
