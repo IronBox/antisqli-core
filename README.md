@@ -32,6 +32,7 @@ LoadQueryTextSecure(this SqlCommand sqlCommandObj, String queryText, params Obje
 #### Example
 ````csharp
 using IronBox.AntiSQLi.Core.Sql;
+using System.Data.SqlClient;
 
 using (var connection = new SqlConnection("connectionstring"))
 {
@@ -54,6 +55,7 @@ LoadQueryTextSecure(this SqlCommand sqlCommandObj, String queryText, params Obje
 #### Example
 ````csharp
 using IronBox.AntiSQLi.Core.Sql;
+using Microsoft.Data.SqlClient;
 
 using (var connection = new SqlConnection("connectionstring"))
 {
@@ -85,10 +87,11 @@ LoadQuerySecure(this SqlQuerySpec sqs, String queryText, params Object[] queryTe
 #### Example
 ````csharp
 using IronBox.AntiSQLi.Core.Cosmos;
+using Microsoft.Azure.Documents.Client;
 
 var querySpec = new SqlQuerySpec();
 querySpec.LoadQuerySecure("select * from doc where doc.name = {0}", evil_data1);
-var documentClient = new Microsoft.Azure.Documents.Client.DocumentClient(new Uri("document_db_uri"), "document_key");
+var documentClient = new DocumentClient(new Uri("document_db_uri"), "document_key");
 ...
 var queryResult = documentClient.CreateDocumentQuery("collection_link", querySpec);
 ````
