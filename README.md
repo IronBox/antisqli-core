@@ -50,7 +50,7 @@ cmd.CommandText = String.Format("SELECT * FROM UserTable WHERE uname = '{0}'", u
 var dataReader = await cmd.ExecuteReaderAsync();
 ...
 ```
-An approach to remediate the above vulnerable code is to use [SQL parameters](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters). When using parameters, a placeholder is left in the literal query that references a parameter that the untrusted data is assigned to. The SQL interpreter handles the parameter data as non-executable code and any risk from SQLi attacks is mitigated.
+An approach to remediate the above vulnerable code is to use [SQL parameters](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters). When using SQL parameters, a unique identifier for the parameter is inserted into the query. Then a SQL parameter object is created with that unique identifier and the value of the untrusted data is read into the parameter. Other settings such as the parameter type and length might be set, but that is not always the case depending on the database technology or platform. The SQL interpreter processes the query and treats the parameter as non-executable code which mitigates any risk from SQLi attacks.
 
 ```csharp
 SqlCommand cmd = new SqlCommand();
