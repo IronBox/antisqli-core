@@ -40,18 +40,11 @@ Install-Package IronBox.AntiSQLi.Core
 When a dynamic SQL query is constructed using data from an untrusted source and then processed by a SQL interpreter, the potential for an attacker to execute unauthorized commands through the interpreter is created. Application code that contains this pattern is known to be vulnerable to [SQL injection (SQLi)](https://owasp.org/www-community/attacks/SQL_Injection) attacks.
 
 ```csharp
-[Route("profile/{username}")]
-public async Task<IActionResult> Profile(String username)
-{
-  ...
-  SqlCommand cmd = new SqlCommand();
-  cmd.Connection = new SqlConnection("connection_string");
-  cmd.CommandText = String.Format("SELECT * FROM UserTable WHERE un = '{0}'", username);
-  var dataReader = await cmd.ExecuteReaderAsync();
-  
-  ...
-  return View();
-}
+SqlCommand cmd = new SqlCommand();
+cmd.Connection = new SqlConnection("connection_string");
+cmd.CommandText = String.Format("SELECT * FROM UserTable WHERE un = '{0}'", username);
+var dataReader = await cmd.ExecuteReaderAsync();
+...
 ```
 
 ## About
