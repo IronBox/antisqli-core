@@ -24,12 +24,12 @@ Install-Package IronBox.AntiSQLi.Core
 ## Usage
 How you use the AntiSQLi Library depends on the provider class that you are using to perform your SQL queries. Here is a table to help guide you to the appropriate extensions and helper classes to use:
 
-SQL Provider Class | Use AntiSQLi Class.Method | Namespace to Import
---- | --- | ---
-System.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Sql
-Microsoft.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Sql
-Microsoft.Azure.Documents.Client.SqlQuerySpec | CosmosDBExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Cosmos
-Microsoft.Azure.Cosmos.QueryDefinition | SecureQueryDefinition.Create | IronBox.AntiSQLi.Core.Cosmos
+SQL Provider Class | Use AntiSQLi Class.Method 
+--- | --- 
+System.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure 
+Microsoft.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure 
+Microsoft.Azure.Documents.Client.SqlQuerySpec | CosmosDBExtensions.LoadQueryTextSecure 
+Microsoft.Azure.Cosmos.QueryDefinition | SecureQueryDefinition.Create 
 
 More information and examples on using each is provided below:
 
