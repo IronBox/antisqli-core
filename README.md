@@ -82,11 +82,11 @@ var dataReader = await cmd.ExecuteReaderAsync();
 At runtime, the class extension `.LoadQuerySecure(queryText, params Object[] args)` performs two important tasks. The first is it analyzes the `args` object parameters provided and automatically generates SQL parameter objects (assigns IDs, set types and values) for each.
 ```csharp
 // These operations are automatically performed by the AntiSQLi library at runtime
-SqlParameter parameter = new SqlParameter("@AntiSQLi1", SqlDbType.VarChar);
+SqlParameter parameter = new SqlParameter("@AntiSQLiParam1", SqlDbType.VarChar);
 parameter.Value = username;
 cmd.Parameters.Add(parameter);
 
-// Any additional parameters would also be generated: @AntiSQLi2, @AntiSQLi3 ...
+// Any additional parameters would also be generated: @AntiSQLiParam2, @AntiSQLiParam3 ...
 ...
 ```
 The second task performed by the AntiSQLi library is it replaces the original format items IDs in the query to match the IDs of the dynamically generated parameters. The original query:
