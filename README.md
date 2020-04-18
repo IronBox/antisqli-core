@@ -1,6 +1,10 @@
 # IronBox AntiSQLi Library
-The IronBox AntiSQLi libray provides developers with convenient extensions and classes to greatly reduce the risk from SQL injection (SQLi) attacks on different data services and platforms.
+The IronBox AntiSQLi libray provides developers with convenient classes and extensions to reduce the risk from SQL injection (SQLi) attacks in their code.
 
+The library currently provides support for:
+
+- SQL databases
+- Azure Cosmos DB
 
 ## Installation
 
@@ -13,6 +17,7 @@ Install-Package IronBox.AntiSQLi.Core
 ### Requirements
 
 - .NET Standard 2.1+
+
 
 
 ## Usage
