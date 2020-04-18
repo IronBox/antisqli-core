@@ -43,6 +43,7 @@ Whenever a dynamic SQL query is constructed using data from an untrusted source 
 A common pattern for creating a dynamic SQL query is to express the query as a string with placeholders for variables. The class method `String.Format` is a convenient way to implement this pattern.
 
 ```csharp
+// Vulnerable SQLi code example
 SqlCommand cmd = new SqlCommand();
 cmd.Connection = new SqlConnection("connection_string");
 cmd.CommandText = String.Format("SELECT * FROM UserTable WHERE uname = '{0}'", username);
