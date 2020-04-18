@@ -25,7 +25,7 @@ Install-Package IronBox.AntiSQLi.Core
 
 
 #### `System.Data.SqlClient.SqlCommand`
-The [System.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand) class is the traditional mechanism for developers to execute Transact-SQL statements or stored procedures against a SQL database or Azure SQL Database. The AntiSQLi library extends this class with a method called `LoadQuerySecure`.
+The [System.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand) class is the traditional mechanism for developers to execute Transact-SQL statements or stored procedures against a SQL database, such as SQL Server or Azure SQL Database. The AntiSQLi library extends this class with a method called `LoadQuerySecure`.
 ````csharp
 LoadQueryTextSecure(this SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
 ````
@@ -41,13 +41,39 @@ using (var connection = new SqlConnection("connectionstring"))
         "SELECT CustomerName, City " +
         "FROM Customers " +
         "WHERE d1 = '{0}' AND d2 = {1} AND d3 = '{2}'", data1, data2, data3);
+    connection.Open();
     var dataReader = await cmd.ExecuteReaderAsync();
 }
 ````
 
 #### `Microsoft.Data.SqlClient.SqlCommand`
+Moving forward, [Microsoft.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand) is Microsoft's recommended Transact-SQL statement and stored procedure executor against a SQL database. The AntiSQLi library extends this class with a method called `LoadQuerySecure'.
+````csharp
+LoadQueryTextSecure(this SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
+````
+##### Example
+````csharp
+using IronBox.AntiSQLi.Core.Sql;
 
-
+using (var connection = new SqlConnection("connectionstring"))
+{
+    SqlCommand cmd = new SqlCommand();
+    cmd.connection = connection;
+    connection.Open();
+    cmd.LoadQuerySecure(
+        "SELECT OrderID, CustomerID " +
+        "FROM dbo.Orders " +
+        "WHERE state = {0} or state = {1}", state1, state2);
+    using (SqlDataReader reader = cmd.ExecuteReader())
+    {
+        while (reader.Read())
+        {
+            Console.WriteLine(String.Format("{0}, {1}",
+                reader[0], reader[1]));
+        }
+    }
+}
+````
 
 #### `Microsoft.Azure.Documents.SqlQuerySpec`
 
