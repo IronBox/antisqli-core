@@ -24,17 +24,17 @@ Install-Package IronBox.AntiSQLi.Core
 ## Usage
 
 
-### System.Data.SqlClient.SqlCommand
+#### System.Data.SqlClient.SqlCommand
 
 
-### Microsoft.Data.SqlClient.SqlCommand
+#### Microsoft.Data.SqlClient.SqlCommand
 
 
 
-### Microsoft.Azure.Documents.SqlQuerySpec
+#### Microsoft.Azure.Documents.SqlQuerySpec
 
 
-### Microsoft.Azure.Cosmos.QueryDefinition
+#### Microsoft.Azure.Cosmos.QueryDefinition
 
 ## How this library works
 When a dynamic SQL query is constructed using data from an untrusted source and then executed by a SQL interpreter, the potential for an attacker to execute unauthorized commands is created.
