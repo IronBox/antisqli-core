@@ -19,6 +19,7 @@ Install-Package IronBox.AntiSQLi.Core
 
 - .NET Standard 2.1+
 
+## How this library works
 
 
 ## Usage
