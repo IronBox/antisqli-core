@@ -22,6 +22,14 @@ Install-Package IronBox.AntiSQLi.Core
 
 
 ## Usage
+How you use the AntiSQLi Library depends largely on the provider class that you are using to perform your SQL queries. Here is a table to help guide you to the appropriate extensions and helper classes to use:
+
+Provider Class | Use AntiSQLi Class.Method | Namespace to Import
+--- | --- | ---
+System.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Sql
+Microsoft.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Sql
+Microsoft.Azure.Documents.SqlQuerySpec | CosmosDBExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Cosmos
+Microsoft.Azure.Documents.QueryDefinition | SecureQueryDefinition.Create | IronBox.AntiSQLi.Core.Cosmos
 
 
 ### `System.Data.SqlClient.SqlCommand`
@@ -96,9 +104,9 @@ var documentClient = new DocumentClient(new Uri("document_db_uri"), "document_ke
 var queryResult = documentClient.CreateDocumentQuery("collection_link", querySpec);
 ````
 ### `Microsoft.Azure.Cosmos.QueryDefinition`
-Another way to perform a SQL query against a Azure Cosmos DB service is with the use of the [Microsoft.Azure.Cosmos.QueryDefinition](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.querydefinition). 
+Another way to perform a SQL query against a Azure Cosmos DB service is with the use of the [Microsoft.Azure.Cosmos.QueryDefinition](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.querydefinition) class. 
 
-This class only supports loading queries at the time of instantiation so using extensions was not possible. Instead, the AntiSQLi provides a helper class that reads a query and arguments, creates a parameterized query and instantiates a QueryDefinition class with the parameterized query.
+This class only supports loading queries at the time of instantiation so using extensions was not possible. Instead, the AntiSQLi provides a helper class that reads a query and arguments, generates parameters and creates an instance of the QueryDefinition class with the parameterized query.
 #### Example
 ````csharp
 using IronBox.AntiSQLi.Core.Cosmos;
