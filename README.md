@@ -51,8 +51,7 @@ cmd.CommandText = String.Format("SELECT * FROM UserTable WHERE uname = '{0}'", u
 var dataReader = await cmd.ExecuteReaderAsync();
 ...
 ```
-An approach to remediate the above vulnerable code is to use [SQL parameters](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters). When using SQL parameters, a unique identifier for the parameter is inserted into the query. Then a SQL parameter object is created with that unique identifier and the value of the untrusted data is read into the parameter. Other settings such as the parameter type and length might be set, but that is not always the case depending on the database technology or platform used. The SQL interpreter processes the query and treats the parameter as non-executable code which mitigates any risk from SQLi attacks.
-
+An approach to remediate the above vulnerable code is to use [SQL parameters](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters). When using SQL parameters, a unique identifier for the parameter is inserted into the query. Then a SQL parameter object is created with that unique identifier and the value of the untrusted data is read into the parameter. Other settings such as the parameter type and length might be set, but that is not always the case depending on the database technology or platform used. 
 ```csharp
 SqlCommand cmd = new SqlCommand();
 cmd.Connection = new SqlConnection("connection_string");
@@ -67,6 +66,8 @@ cmd.Parameters.Add(parameter);
 var dataReader = await cmd.ExecuteReaderAsync();
 ...
 ```
+The SQL interpreter processes the query and treats the parameter as non-executable code which mitigates any risk from SQLi attacks.
+
 Using parameters is an effective way to mitigate risk from SQLi attacks; however, it can become tedious and error-prone especially in scenarios where a query contains a large number of variables, or the query significantly changes. Certainly, the convenience to the developer of using a single line of code to create a SQL query is lost. Developers are ultimately required to use a pattern that they may not be familiar with and that requires more code.
 
 #### How the AntiSQLi Library Helps
