@@ -4,7 +4,7 @@ The IronBox AntiSQLi libray provides developers with convenient classes and exte
 The library currently provides support for:
 
 - SQL databases
-- Azure Cosmos DB
+- Azure Cosmos DB/ DocumentDB
 
 ## Installation
 
