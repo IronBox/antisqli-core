@@ -24,19 +24,19 @@ Install-Package IronBox.AntiSQLi.Core
 ## Usage
 How you use the AntiSQLi Library depends on the provider class that you are using to perform your SQL queries. Here is a table to help guide you to the appropriate extensions and helper classes to use:
 
-SQL Provider Class | Use AntiSQLi Class.Method | Namespace to Import
---- | --- | ---
-System.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Sql
-Microsoft.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Sql
-Microsoft.Azure.Documents.SqlQuerySpec | CosmosDBExtensions.LoadQueryTextSecure | IronBox.AntiSQLi.Core.Cosmos
-Microsoft.Azure.Documents.QueryDefinition | SecureQueryDefinition.Create | IronBox.AntiSQLi.Core.Cosmos
+SQL Provider Class | Use AntiSQLi Class.Method 
+--- | --- 
+System.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure 
+Microsoft.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure 
+Microsoft.Azure.Documents.Client.SqlQuerySpec | CosmosDBExtensions.LoadQueryTextSecure 
+Microsoft.Azure.Cosmos.QueryDefinition | SecureQueryDefinition.Create 
 
 More information and examples on using each is provided below:
 
 ### `System.Data.SqlClient.SqlCommand`
 The [System.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand) class is the traditional mechanism for developers to execute Transact-SQL statements or stored procedures against a SQL database, such as SQL Server or Azure SQL Database. The AntiSQLi library extends this class with a method called `LoadQuerySecure` to automatically parameterize and load queries.
 ````csharp
-LoadQueryTextSecure(this SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
+LoadQuerySecure(this SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
 ````
 #### Example
 ````csharp
@@ -47,7 +47,7 @@ using (var connection = new SqlConnection("connectionstring"))
 {
     var cmd = new SqlCommand();
     cmd.Connection = connection;
-    cmd.LoadQueryTextSecure(
+    cmd.LoadQuerySecure(
         "SELECT CustomerName, City " +
         "FROM Customers " +
         "WHERE d1 = '{0}' AND d3 = {2} AND d2 = '{1}'", evil_data1, evil_data2, evil_data3);
@@ -59,7 +59,7 @@ using (var connection = new SqlConnection("connectionstring"))
 ### `Microsoft.Data.SqlClient.SqlCommand`
 Moving forward, [Microsoft.Data.SqlClient.SqlCommand](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlclient.sqlcommand) is Microsoft's recommended Transact-SQL statement and stored procedure executor against a SQL database. The AntiSQLi library extends this class with a method called `LoadQuerySecure` to automatically parameterize and load queries.
 ````csharp
-LoadQueryTextSecure(this SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
+LoadQuerySecure(this SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
 ````
 #### Example
 ````csharp
