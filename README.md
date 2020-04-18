@@ -71,8 +71,8 @@ Using parameters is an effective way to mitigate risk from SQLi attacks; however
 The **AntiSQLi library provides class extensions that automatically parameterizes and loads dynamic queries** for developers. Using the original code example above, here is how the AntiSQLi library could be used:
 
 ```csharp
-using IronBox.AntiSQLi.Core.Sql
-
+using IronBox.AntiSQLi.Core.Sql;
+...
 SqlCommand cmd = new SqlCommand();
 cmd.Connection = new SqlConnection("connection_string");
 cmd.LoadQuerySecure("SELECT * FROM UserTable WHERE uname = '{0}'", username);
