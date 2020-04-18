@@ -19,7 +19,7 @@ namespace IronBox.AntiSQLi.Core.Sql
         ///     Thrown on loading errors
         /// </exception>
         //---------------------------------------------------------------------
-        public static void LoadQueryTextSecure(this Microsoft.Data.SqlClient.SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
+        public static void LoadQuerySecure(this Microsoft.Data.SqlClient.SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
         {
             AntiSQLiCommon.ParameterizeAndLoadQuery<Microsoft.Data.SqlClient.SqlParameter>(sqlCommandObj, queryText, queryTextArgs);   
         }
@@ -35,7 +35,7 @@ namespace IronBox.AntiSQLi.Core.Sql
         /// <param name="queryText">Query string to execute</param>
         /// <param name="queryTextArgs">Parameters</param>
         //---------------------------------------------------------------------
-        public static void LoadQueryTextSecure(this System.Data.SqlClient.SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
+        public static void LoadQuerySecure(this System.Data.SqlClient.SqlCommand sqlCommandObj, String queryText, params Object[] queryTextArgs)
         {
             AntiSQLiCommon.ParameterizeAndLoadQuery<System.Data.SqlClient.SqlParameter>(sqlCommandObj, queryText, queryTextArgs);
         }
