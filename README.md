@@ -31,6 +31,8 @@ LoadQueryTextSecure(this SqlCommand sqlCommandObj, String queryText, params Obje
 ````
 ##### Example
 ````csharp
+using IronBox.AntiSQLi.Core.Sql;
+
 using (var connection = new SqlConnection("connectionstring"))
 {
     var cmd = new SqlCommand();
