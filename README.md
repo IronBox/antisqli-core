@@ -27,7 +27,7 @@ How you use the AntiSQLi Library depends on the provider class that you are usin
 SQL Provider Class | Use AntiSQLi Class.Method 
 --- | --- 
 System.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure 
-Microsoft.Data.SqlClient.SqlCommand | SqlCommandExtensions.LoadQueryTextSecure 
+[Microsoft.Data.SqlClient.SqlCommand](https://github.com/IronBox/antisqli-core/blob/master/README.md#microsoftdatasqlclientsqlcommand) | SqlCommandExtensions.LoadQueryTextSecure 
 Microsoft.Azure.Documents.Client.SqlQuerySpec | CosmosDBExtensions.LoadQueryTextSecure 
 Microsoft.Azure.Cosmos.QueryDefinition | SecureQueryDefinition.Create 
 
