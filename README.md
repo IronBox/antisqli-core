@@ -152,7 +152,7 @@ cmd.Parameters.Add(parameter);
 var dataReader = await cmd.ExecuteReaderAsync();
 ...
 ```
-The SQL interpreter processes the query and treats the parameter as non-executable code which mitigates any risk from SQLi attacks.
+The SQL interpreter processes the query and treats the parameter as data-only (i.e., non-executable) which mitigates any risk from SQLi attacks.
 
 Using parameters is an effective way to mitigate risk from SQLi attacks; however, it can become tedious and error-prone, especially in scenarios where queries contain large number of variables or the query significantly changes. Certainly, the convenience to the developer of using a single line of code to create a SQL query is lost. Developers are ultimately required to use a pattern that they may not be familiar with and that requires more code.
 
