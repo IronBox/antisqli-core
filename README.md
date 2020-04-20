@@ -1,5 +1,5 @@
 # Anti-SQL Injection (AntiSQLi) Library
-The AntiSQLi libray provides developers with convenient helper methods and class extensions to reduce the risk from SQL injection (SQLi) attacks in .NET applications.
+The AntiSQLi library provides developers with convenient helper methods and class extensions to reduce the risk from SQL injection (SQLi) attacks in .NET applications.
 
 The library provides support for:
 
@@ -125,7 +125,7 @@ while (feedIterator.HasMoreResults)
 ## How the AntiSQLi Library Works
 Whenever a dynamic SQL query is constructed using data from an untrusted source and then processed by a SQL interpreter, the potential for an attacker to execute unauthorized commands through the interpreter is created. This is because the untrusted data itself could contain executable SQL statements. 
 
-Application code that contains this pattern is said to be vulnerable to [SQL injection (SQLi)](https://owasp.org/www-community/attacks/SQL_Injection) attacks. This vulnerability could allow the attacker to perform actions, such as, but not limited to, executing system commands (privilege escalation) and unauthorized access to sensitive information (databreach).
+Application code that contains this pattern is said to be vulnerable to [SQL injection (SQLi)](https://owasp.org/www-community/attacks/SQL_Injection) attacks. This vulnerability could allow the attacker to perform actions, such as, but not limited to, executing system commands (privilege escalation) and unauthorized access to sensitive information (data breach).
 
 ### Automatic Query Parameterization
 #### Understanding Query Parameterization
@@ -158,9 +158,9 @@ The SQL interpreter processes the query and treats the parameter as data-only (i
 
 Using parameters is an effective way to mitigate risk from SQLi attacks; however, it can become tedious and error-prone, especially in scenarios where queries contain large number of variables or the query significantly changes. Certainly, the convenience to the developer of using a single line of code to create a SQL query is lost. 
 
-Developers are ultimately required to use a pattern that they may not be familiar with, difficult to maintain and that requires more code. Put another way, developers are less likely to use this best-practice pattern.
+Developers are ultimately required to use a pattern that they may not be familiar with, difficult to maintain and that requires more code. Put another way, developers are less likely to use this security best-practice pattern.
 
-#### How the AntiSQLi Library Helps
+#### The AntiSQLi Library Helps Make .NET Applications More Secure
 The **AntiSQLi library provides class extensions that automatically parameterizes and loads dynamic queries**. This means that developers can continue to use same single line pattern that they are used to, and let the AntiSQLi library handles the task of query parameterization. Let's take a brief look at how this works:
 
 ```csharp
