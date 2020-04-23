@@ -1,7 +1,7 @@
 # Anti-SQL Injection (AntiSQLi) Library
 The AntiSQLi library provides developers with convenient helper methods and class extensions to reduce the risk from SQL injection (SQLi) attacks in .NET applications.
 
-It enables .NET developers to continue using traditionally dangerous coding patterns like the following, but without the risk of introducing SQLi vulnerabilities in their code:
+It enables .NET developers to continue to use the following insecure coding patterns they are used, but without the risk of introducing SQLi vulnerabilities in their code:
 ````
 cmd.CommandText = String.Format("SELECT * FROM MyTable WHERE uname = '{0}'", untrusted_data);
 ````
